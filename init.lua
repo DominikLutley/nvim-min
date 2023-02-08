@@ -64,6 +64,15 @@ local function plugins(use)
 			require("config.null-ls")
 		end,
 	})
+	use({ "hrsh7th/cmp-nvim-lsp" })
+	use({ "hrsh7th/cmp-vsnip" })
+	use({ "hrsh7th/vim-vsnip" })
+	use({
+		"hrsh7th/nvim-cmp",
+		config = function()
+			require("config.nvim-cmp")
+		end,
+	})
 
 	-- Bootstrap Neovim
 	if packer_bootstrap then
