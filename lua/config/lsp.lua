@@ -41,6 +41,8 @@ local function keymappings(_, bufnr)
 	keymap("n", "gI", "<cmd>Telescope lsp_implementations<CR>", opts)
 	keymap("n", "gb", "<cmd>lua vim.lsp.buf.type_definition()<CR>", opts)
 
+	keymap("n", "<leader>a", "<cmd> lua vim.lsp.buf.code_action()<CR>", opts)
+
 	api.nvim_set_keymap("i", "<Tab>", [[pumvisible() ? "\<C-n>" : "\<Tab>"]], { noremap = true, expr = true })
 	api.nvim_set_keymap("i", "<S-Tab>", [[pumvisible() ? "\<C-p>" : "\<S-Tab>"]], { noremap = true, expr = true })
 end
