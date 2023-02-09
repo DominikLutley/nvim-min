@@ -89,7 +89,7 @@ vim.api.nvim_create_autocmd("User", {
 })
 
 -- Auto format
-vim.api.nvim_create_autocmd("BufWritePre", { command = "call CocAction('format')" })
+-- vim.api.nvim_create_autocmd("BufWritePre", { command = "call CocAction('format')" })
 
 -- Apply codeAction to the selected region
 -- Example: `<leader>aap` for current paragraph
