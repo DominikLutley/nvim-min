@@ -62,6 +62,22 @@ local function plugins(use)
         require("config.coc")
       end,
   })
+  use({
+      "folke/which-key.nvim",
+      config = function()
+        require("config.which-key")
+      end
+  })
+  use({
+      "nvim-telescope/telescope.nvim",
+      tag = "0.1.1",
+      -- or                            , branch = "0.1.x",
+      requires = { { "nvim-lua/plenary.nvim" } },
+      config = function()
+        require("config.telescope")
+      end
+  })
+
 
   -- Bootstrap Neovim
   if packer_bootstrap then

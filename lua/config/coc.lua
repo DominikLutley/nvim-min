@@ -10,7 +10,10 @@ vim.opt.updatetime = 300
 -- diagnostics appeared/became resolved
 vim.opt.signcolumn = "yes"
 
+local wk = require("which-key")
+
 local keyset = vim.keymap.set
+
 -- Autocomplete
 function _G.check_back_space()
   local col = vim.fn.col('.') - 1
@@ -28,7 +31,7 @@ keyset("i", "<c-p>", [[coc#pum#visible() ? coc#pum#prev(1) : "\<C-h>"]], opts)
 
 -- Make <CR> to accept selected completion item or notify coc.nvim to format
 -- <C-g>u breaks current undo, please make your own choice
-keyset("i", "<cr>", [[coc#pum#visible() ? coc#pum#confirm() : "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"]], opts)
+keyset("i", "<Tab>", [[coc#pum#visible() ? coc#pum#confirm() : "<space><space>"]], opts)
 
 -- Use <c-j> to trigger snippets
 keyset("i", "<c-j>", "<Plug>(coc-snippets-expand-jump)")
@@ -37,8 +40,16 @@ keyset("i", "<c-space>", "coc#refresh()", { silent = true, expr = true })
 
 -- Use `[g` and `]g` to navigate diagnostics
 -- Use `:CocDiagnostics` to get all diagnostics of current buffer in location list
-keyset("n", "[d", "<Plug>(coc-diagnostic-prev)", { silent = true })
-keyset("n", "]d", "<Plug>(coc-diagnostic-next)", { silent = true })
+-- keyset("n", "[d", "<Plug>(coc-diagnostic-prev)", { silent = true })
+-- keyset("n", "]d", "<Plug>(coc-diagnostic-next)", { silent = true })
+wk.register({
+    ["["] = {
+        d = { "<Plug>(coc-diagnostic-prev)", "Previous Diagnostic" }
+    },
+    ["]"] = {
+        d = { "<Plug>(coc-diagnostic-next)", "Next Diagnostic" }
+    }
+}, { silent = true })
 
 -- GoTo code navigation
 keyset("n", "gd", "<Plug>(coc-definition)", { silent = true })
@@ -99,12 +110,6 @@ keyset("n", "<leader>a", "<Plug>(coc-codeaction-selected)", opts)
 
 -- Remap keys for applying codeActions to the current buffer
 keyset("n", "<leader>a", "<Plug>(coc-codeaction)", opts)
--- Apply the most preferred quickfix action on the current line.
-keyset("n", "<leader>qf", "<Plug>(coc-fix-current)", opts)
-
--- Run the Code Lens actions on the current line
-keyset("n", "<leader>cl", "<Plug>(coc-codelens-action)", opts)
-
 
 -- Map function and class text objects
 -- NOTE: Requires 'textDocument.documentSymbol' support from the language server
