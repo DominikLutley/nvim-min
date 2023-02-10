@@ -64,6 +64,7 @@ local function plugins(use)
   })
   use({
       "folke/which-key.nvim",
+      tag = "stable",
       config = function()
         require("config.which-key")
       end
@@ -75,6 +76,13 @@ local function plugins(use)
       requires = { { "nvim-lua/plenary.nvim" } },
       config = function()
         require("config.telescope")
+      end
+  })
+  use({
+      "lewis6991/gitsigns.nvim",
+      tag = "release",
+      config = function()
+        require("gitsigns").setup({})
       end
   })
 
