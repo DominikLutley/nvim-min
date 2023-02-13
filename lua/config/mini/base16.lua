@@ -12,12 +12,12 @@ require("mini.base16").setup({
         base08 = "#e67e80", -- red
         base09 = "#d699b6",
         -- base0A = "#83c092", -- green
-        base0A = "#7fbbb3", -- blue
+        base0A = "#83c092", -- bluegreen
         -- base0B = "#dbbc7f", -- yellow
         base0B = "#a7c080", -- green
         base0C = "#e69875", -- orange
         -- base0D = "#a7c080", -- green
-        base0D = "#83c092", -- bluegreen
+        base0D = "#7fbbb3", -- blue
         -- base0E = "#e67e80", -- red
         base0E = "#dbbc7f", -- yellow
         base0F = "#d699b6",
