@@ -13,7 +13,7 @@ local packer_bootstrap = false -- Indicate first time installation
 local conf = {
   profile = {
     enable = true,
-    threshold = 0,     -- the amount in ms that a plugins load time must be over for it to be included in the profile
+    threshold = 0, -- the amount in ms that a plugins load time must be over for it to be included in the profile
   },
   display = {
     open_fn = function()
@@ -62,6 +62,7 @@ local function plugins(use)
       require("config.coc")
     end,
   })
+  use({ "nvim-treesitter/nvim-treesitter", run = ":TSUpdate" })
   use({
     "folke/which-key.nvim",
     tag = "stable",
