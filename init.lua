@@ -80,6 +80,9 @@ local function plugins(use)
     end
   })
   use({
+    "airblade/vim-rooter"
+  })
+  use({
     "lewis6991/gitsigns.nvim",
     tag = "release",
     config = function()
