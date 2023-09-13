@@ -12,3 +12,5 @@ opt.smartcase = true
 opt.updatetime = 250
 opt.signcolumn = "yes"
 opt.termguicolors = true
+opt.foldmethod = "syntax"
+opt.foldlevel = 99

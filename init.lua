@@ -6,7 +6,6 @@ local api = vim.api
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 
-
 local packer_bootstrap = false -- Indicate first time installation
 
 -- packer.nvim configuration

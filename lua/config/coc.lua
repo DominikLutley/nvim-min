@@ -31,7 +31,7 @@ keyset("i", "<c-p>", [[coc#pum#visible() ? coc#pum#prev(1) : "\<C-h>"]], opts)
 
 -- Make <CR> to accept selected completion item or notify coc.nvim to format
 -- <C-g>u breaks current undo, please make your own choice
-keyset("i", "<Tab>", [[coc#pum#visible() ? coc#pum#confirm() : "<space><space>"]], opts)
+keyset("i", "<Tab>", [[coc#pum#visible() ? coc#pum#confirm() : "<space><space><space><space>"]], opts)
 
 -- Use <c-j> to trigger snippets
 keyset("i", "<c-j>", "<Plug>(coc-snippets-expand-jump)")
@@ -43,12 +43,12 @@ keyset("i", "<c-space>", "coc#refresh()", { silent = true, expr = true })
 -- keyset("n", "[d", "<Plug>(coc-diagnostic-prev)", { silent = true })
 -- keyset("n", "]d", "<Plug>(coc-diagnostic-next)", { silent = true })
 wk.register({
-    ["["] = {
-        d = { "<Plug>(coc-diagnostic-prev)", "Previous Diagnostic" }
-    },
-    ["]"] = {
-        d = { "<Plug>(coc-diagnostic-next)", "Next Diagnostic" }
-    }
+  ["["] = {
+    d = { "<Plug>(coc-diagnostic-prev)", "Previous Diagnostic" }
+  },
+  ["]"] = {
+    d = { "<Plug>(coc-diagnostic-next)", "Next Diagnostic" }
+  }
 }, { silent = true })
 
 -- GoTo code navigation
@@ -75,9 +75,9 @@ keyset("n", "K", '<CMD>lua _G.show_docs()<CR>', { silent = true })
 -- Highlight the symbol and its references on a CursorHold event(cursor is idle)
 vim.api.nvim_create_augroup("CocGroup", {})
 vim.api.nvim_create_autocmd("CursorHold", {
-    group = "CocGroup",
-    command = "silent call CocActionAsync('highlight')",
-    desc = "Highlight symbol under cursor on CursorHold"
+  group = "CocGroup",
+  command = "silent call CocActionAsync('highlight')",
+  desc = "Highlight symbol under cursor on CursorHold"
 })
 
 -- Symbol renaming
@@ -85,18 +85,18 @@ keyset("n", "<leader>r", "<Plug>(coc-rename)", { silent = true })
 
 -- Setup formatexpr specified filetype(s)
 vim.api.nvim_create_autocmd("FileType", {
-    group = "CocGroup",
-    pattern = "typescript,json",
-    command = "setl formatexpr=CocAction('formatSelected')",
-    desc = "Setup formatexpr specified filetype(s)."
+  group = "CocGroup",
+  pattern = "typescript,json",
+  command = "setl formatexpr=CocAction('formatSelected')",
+  desc = "Setup formatexpr specified filetype(s)."
 })
 
 -- Update signature help on jump placeholder
 vim.api.nvim_create_autocmd("User", {
-    group = "CocGroup",
-    pattern = "CocJumpPlaceholder",
-    command = "call CocActionAsync('showSignatureHelp')",
-    desc = "Update signature help on jump placeholder"
+  group = "CocGroup",
+  pattern = "CocJumpPlaceholder",
+  command = "call CocActionAsync('showSignatureHelp')",
+  desc = "Update signature help on jump placeholder"
 })
 
 -- Auto format
@@ -129,9 +129,9 @@ local opts = { silent = true, nowait = true, expr = true }
 keyset("n", "<C-f>", 'coc#float#has_scroll() ? coc#float#scroll(1) : "<C-f>"', opts)
 keyset("n", "<C-b>", 'coc#float#has_scroll() ? coc#float#scroll(0) : "<C-b>"', opts)
 keyset("i", "<C-f>",
-    'coc#float#has_scroll() ? "<c-r>=coc#float#scroll(1)<cr>" : "<Right>"', opts)
+  'coc#float#has_scroll() ? "<c-r>=coc#float#scroll(1)<cr>" : "<Right>"', opts)
 keyset("i", "<C-b>",
-    'coc#float#has_scroll() ? "<c-r>=coc#float#scroll(0)<cr>" : "<Left>"', opts)
+  'coc#float#has_scroll() ? "<c-r>=coc#float#scroll(0)<cr>" : "<Left>"', opts)
 keyset("v", "<C-f>", 'coc#float#has_scroll() ? coc#float#scroll(1) : "<C-f>"', opts)
 keyset("v", "<C-b>", 'coc#float#has_scroll() ? coc#float#scroll(0) : "<C-b>"', opts)
 
