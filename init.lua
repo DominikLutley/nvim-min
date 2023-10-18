@@ -102,3 +102,8 @@ packer_init()
 local packer = require("packer")
 packer.init(conf)
 packer.startup(plugins)
+
+-- opam
+vim.o.rtp = "/home/domlutley/.opam/default/share/ocp-indent/vim," .. vim.o.rtp
+local opamshare = vim.fn.substitute(vim.fn.system("opam var share"), "\n$", "", "")
+vim.o.rtp = opamshare .. "/merlin/vim," .. vim.o.rtp
